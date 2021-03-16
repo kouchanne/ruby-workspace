@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  sample:
+    build: .
+    command:
+      [ "ruby", "./src/main.rb"]
+    volumes:
+      - .:/myapp
+      # volumeを使用してbundle installしてきたものを永続化
+      - bundle:/usr/local/bundle 
+volumes:
+  bundle:
